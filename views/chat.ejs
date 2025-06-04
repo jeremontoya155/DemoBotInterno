@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot de Soporte Técnico</title>
+    <title>Bot de Soporte Técnico Avanzado</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="chat-wrapper">
-        <div class="chat-container" role="main">
-            <header class="chat-header">
-                <h1>Bot de Soporte Técnico</h1>
-            </header>
-            <main class="chat-box" id="chat-box" role="log" aria-live="polite">
-                <div class="message bot-message">
-                    <p>¡Hola! Soy tu bot de soporte. ¿En qué puedo ayudarte hoy?</p>
-                </div>
-                <% if (!knowledgeBaseLoaded) { %>
-                     <div class="message system-message" role="status">
-                         <p>Advertencia: La base de conocimiento no se pudo cargar en el servidor. Las respuestas pueden ser limitadas o incorrectas.</p>
-                     </div>
-                <% } %>
-            </main>
-            <div class="chat-input-area">
-                <div id="typing-status" class="typing-status" aria-live="polite"></div>     
-                <div class="chat-input">
-                    <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." aria-label="Escribe tu pregunta">
-                    <button id="send-button">Enviar</button>
-                </div>
+        <header class="chat-header">
+            <h1>Bot de Soporte Técnico</h1>
+        </header>
+        <main class="chat-box" id="chat-box" role="log" aria-live="polite">
+            <div class="message bot-message">
+                <p>¡Hola! Soy tu bot de soporte. ¿En qué puedo ayudarte hoy?</p>
             </div>
-            <footer class="chat-actions">
-                 <button id="send-email-button">Enviar Resumen por Correo</button>
-                 <span id="email-status" class="status-message" aria-live="polite"></span>
-            </footer>
+            <% if (!knowledgeBaseLoaded) { %>
+                 <div class="message system-message" role="status"> <!-- Clase cambiada a system-message para CSS -->
+                     <p>Advertencia: La base de conocimiento no se pudo cargar en el servidor o está vacía. Las respuestas pueden ser limitadas o incorrectas.</p>
+                 </div>
+            <% } %>
+        </main>
+        <div class="chat-input-area">
+            <div id="typing-status" class="typing-status" aria-live="polite"></div>     
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí..." aria-label="Escribe tu pregunta">
+                <button id="send-button" aria-label="Enviar mensaje">Enviar</button>
+            </div>
         </div>
+        <footer class="chat-actions">
+             <button id="send-email-button" aria-label="Enviar resumen de chat por correo">Enviar Resumen por Correo</button>
+             <span id="email-status" class="status-message" aria-live="polite"></span>
+        </footer>
     </div>
 
     <script src="/script.js"></script>
